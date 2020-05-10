@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="微信阅读推广,微信粉丝,公众号加粉,公众号互粉,微信点赞,微信真人活粉,微信公众号纸巾机加粉,微信公众号wifi吸粉,微信吸粉,文章阅读,微信线下粉">
+    <meta name="description" content="微信阅读推广,微信粉丝,公众号加粉,公众号互粉,微信点赞,微信真人活粉,微信公众号纸巾机加粉,微信公众号wifi吸粉,微信吸粉,文章阅读,微信线下粉">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="/TP/static/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/TP/static/layuiadmin/style/admin.css" media="all">
+
+    <title>真人阅读(匀速/曲线) - 互粉之家</title>
+    <style id="style">
+        .layui-form-label {
+            margin-left: -5px;
+            text-align: center;
+            width: 85px
+        }
+
+        .biz_desc p {
+            margin-bottom: unset;
+            text-indent: unset
+        }
+
+        .layui-btn+.layui-btn {
+            margin-left: 0px;
+        }
+        .layui-table-cell{padding: 0 5px}
+        .detail-item{
+            display: flex;
+            margin: 10px;
+            text-align: center;
+            min-width: 300px;
+        }
+        .detail-extra{
+            margin: 10px;
+            text-align: center;
+        }
+        .detail-item div{width: 50%}
+        #addNumInput{
+            display: inline-block;width: 190px;padding-left: 10px;margin-left: 10px;
+        }
+        #scoreTip{text-align: center;font-size: 14px;display: none;padding-top: 5px;}
+        .searchFromInput{padding: 3px 0;}
+        .layui-form-radio b{display: unset;}
+        .speed-choose .layui-form-radio{
+            display: flex!important;
+        }
+        .layui-form-radio{display: flex;}
+    </style>
+
+    <!--statistics-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?94a436a757d93de93a93174d58e5b926";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!--statistics-->
+    <style>
+        .color-tip{color: #FFB800}
+        .color-notice{color: #FF5722}
+        .color-show{color: #01AAED}
+        .text-center{text-align: center;}
+
+        @media only screen and (max-width: 500px) {
+            .layui-form-label {
+                padding: 9px 0;
+                width: 70px;
+            }
+            .layui-input-block {
+                margin-left: 85px;
+            }
+        }
+        .layui-input-block>input{min-width: 150px;}
+
+        .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover {background-color: #1E9FFF !important;color: #fff;}
+
+        .layui-btn {background-color:#1E9FFF}
+        .layui-btn-primary {border: 1px solid #C9C9C9;background-color: #fff;color: #555;}
+        .layui-btn-danger {background-color: #FF5722;}
+        .layui-btn-warm {background-color: #FFB800;}
+        .layui-btn-disabled, .layui-btn-disabled:active, .layui-btn-disabled:hover {
+            background-color: #FBFBFB;
+        }
+
+        .layui-btn.disabled,.layui-btn:disabled{
+            border: 1px solid #e6e6e6!important;
+            background-color: #FBFBFB!important;
+            color: #C9C9C9!important;
+            cursor: not-allowed!important;
+            opacity: 1!important;
+        }
+
+        .layui-nav-tree .layui-nav-bar {background-color:#1E9FFF !important;}
+        .layui-laypage .layui-laypage-curr .layui-laypage-em {background-color: #1E9FFF;}
+        .layui-form-radio>i:hover, .layui-form-radioed>i {color: #1E9FFF;}
+        .layui-form-select dl dd.layui-this {background-color: #1E9FFF;color: #fff;}
+
+    </style>
+</head>
+
+<body>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header text-center"><h2>真人阅读(匀速/曲线)说明</h2></div>
+        <div class="layui-card-body layui-text layadmin-text biz_desc">
+            <p class="color-notice">【暂停说明】任务提交后，不能暂停或撤销</p>
+            <p>【收费说明】价格动态波动，以提交时价格为准，费用提交时一次性收取</p>
+            <p>【微信文章获取短链接方法】在手机微信中打开你要推广阅读量的公众号文章，然后点击右上角，复制链接</p>
+            <p>【排队来源】不排队，会话来源，不吃自然量</p>
+            <p>【曲线阅读】模拟自然阅读，规定时间内，建议发文后20分钟内安排</p>
+            <p class="color-notice">【10W+说明】可安排10W+文章</p>
+        </div>
+    </div>
+    <div class="layui-card">
+        <div class="layui-card-header">提交任务<span class="color-show" id="showTaskList" style="padding-left: 1em;cursor: pointer">[任务列表]</span></div>
+        <div class="layui-card-body">
+            <form class="layui-form" lay-filter="addTaskForm" id="addTaskForm">
+                <input name="biz" type="hidden" value="read_self_sp">
+                <input name="price" type="hidden">
+                <div class="layui-row layui-col-space10 layui-form-item">
+                    <div class="layui-col-lg9">
+                        <label class="layui-form-label">文章链接：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="url" placeholder="请输入微信文章短链接(以http或https开头)" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item" id="speedRadio">
+                    <!--<label class="layui-form-label">速度类型：</label>-->
+                    <div class="layui-input-block" style="margin-left: 0px!important;">
+                        <input type="radio" name="speed" value="31" lay-filter="speedRadio" min="500"
+                               title="匀速慢速（<b>价格:24.0元/千,速度:5-30/分钟,下限500</b>,上限100000，会话 不排 不吃量）">
+                    </div>                        <div class="layui-input-block" style="margin-left: 0px!important;">
+                    <input type="radio" name="speed" value="32" lay-filter="speedRadio" min="500"
+                           title="匀速快速（<b>价格:24.0元/千,速度:30-100/分钟,下限500</b>,上限100000，会话 不排 不吃量）">
+                </div>                        <div class="layui-input-block" style="margin-left: 0px!important;">
+                    <input type="radio" name="speed" value="33" lay-filter="speedRadio" min="1000"
+                           title="匀速秒单（<b>价格:24.0元/千,速度:100-200/分钟,下限1000</b>,上限100000，会话 不排 不吃量）">
+                </div>                        <div class="layui-input-block" style="margin-left: 0px!important;">
+                    <input type="radio" name="speed" value="39" lay-filter="speedRadio" min="500"
+                           title="曲线阅读（<b>价格:26.0元/千，下限500</b>，上限100000，模拟自然阅读，规定时间内完成，建议发文20分钟内安排 会话不吃不排）">
+                </div>                    </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label" id="specialTitle" style="overflow:unset"></label>
+                    <div class="layui-input-block">
+                        <input type="number" name="special" placeholder="" autocomplete="off" class="layui-input" style="min-width:unset;width: 100px;display:unset">
+                        <span id="specialTip"></span>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-col-md6 layui-col-sm8 layui-col-xs10 layui-col-lg6">
+                    <label class="layui-form-label" style="overflow:unset">总需阅读量：</label>
+                    <div class="layui-input-block">
+                        <input type="number" name="need" placeholder="请输入期望阅读量" autocomplete="off" class="layui-input">
+                        <p id="scoreTip">
+                            <span class="color-notice"></span>
+                            <a class="layui-btn layui-btn-xs layui-btn-radius" href="/recharge/">立即充值</a>
+                            <br><em class="color-notice" style="font-style: unset;">注意：任务提交后，不能暂停或撤销</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="addTaskForm" id="addTaskBtn">立即提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="layui-card">
+        <div class="layui-card-header" id="tasklist">任务列表</div>
+        <div class="layui-card-body">
+            <form class="layui-form" lay-filter="searchForm">
+                <div style="margin-bottom: 10px;">
+                    <div class="layui-inline searchFromInput">
+                        <p class="layui-inline">任务ID：</p>
+                        <div class="layui-inline">
+                            <input class="layui-input" name="task_id" type="number" placeholder="任务ID">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline searchFromInput">
+                        <p class="layui-inline">标题：</p>
+                        <div class="layui-inline">
+                            <input class="layui-input" name="title" type="text" placeholder="文章标题">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline searchFromInput">
+                        <p class="layui-inline">链接：</p>
+                        <div class="layui-inline">
+                            <input class="layui-input" name="url" type="text" placeholder="文章链接">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline searchFromInput">
+                        <p class="layui-inline">状态：</p>
+                        <div class="layui-inline" style="width: 100px;">
+                            <select name="status">
+                                <option value="">所有</option>
+                                <option value="1">进行中</option>
+                                <option value="3">已完成</option>
+                                <option value="5">排队中</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="layui-btn layui-inline" lay-submit lay-filter="searchForm">搜索</button>
+                </div>
+            </form>
+            <table class="layui-hide" id="data-list" lay-filter="data-list"></table>
+        </div>
+    </div>
+</div>
+
+
+<script src="/TP/static/layuiadmin//layui/layui.js"></script>
+
+<script type="text/html" id="table-operate-bar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">详情</a>
+    {{# if(d.status=='3'||d.status=='6'){ }}
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
+    {{# } }}
+</script>
+
+<script type="text/html" id="titleTpl">
+    <a href="{{d.url}}" target="_blank" class="layui-table-link">{{d.title}}</a>
+</script>
+<script type="text/html" id="createtimeTpl">
+    {{ d.createtime.substr(5,20)}}
+</script>
+
+<script>
+    var speedPrice={"31":"24.0","32":"24.0","33":"24.0","39":"26.0"};
+    layui.config({"version":"109","base":"\/TP\/static\/layuiadmin\/"}).extend({
+        setter: 'hfzjlib/config',
+        index: 'hfzjlib/index'
+    }).use(['index','form', 'table','laytpl'], function () {
+        var $ = layui.$
+                , element = layui.element
+                , layer = layui.layer
+                , admin = layui.admin
+                , table = layui.table
+                , form = layui.form
+                , laytpl = layui.laytpl
+
+                , biz = 'read_self_sp'
+                , scoreTip = $('#scoreTip')
+                , specialTitleDom = $('#specialTitle')
+                , specialTipDom = $('#specialTip')
+
+                , reloadTable = function (where, currPage,showLoadingTips) {
+                    if(showLoadingTips!==false){
+                        var msgIndex = layer.msg('数据加载中', {icon: 16,time: 30000,shade: 0.01,tipsMore:true});
+                    }
+
+                    var cfg = {loading:false,done:function (res, curr, count) {
+                        layer.close(msgIndex);
+                    }};
+                    if (!isEmpty(where))
+                        cfg.where = where;
+                    if (!isEmpty(currPage))
+                        cfg.page = {curr:currPage};
+                    table.reload('data-list', cfg);
+                }
+                ;
+
+        $('#showTaskList').click(function () {
+            $("html, body").animate({scrollTop: $("#tasklist").offset().top }, {duration: 400,easing: "swing"});
+        });
+
+        if((speedPrice===false)||(speedPrice.length<=0)){
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-rim',
+                title: null,
+                content: '<div style="padding: 15px;font-size: 18px;padding-bottom: 0;">目前真人阅读(匀速/曲线)订单已满，您可以提交真人阅读(快速-推荐)任务，谢谢！</div>',
+                btnAlign:'c',
+                btn: ['提交真人阅读(快速-推荐)任务'],
+                yes:function (index) {
+                    layJump('/task/?biz=read_self','真人阅读(快速-推荐)');
+                    layer.close(index);
+                },
+            });
+            $('#addTaskBtn').addClass('disabled').attr('disabled','disabled');
+        }
+
+        form.render();
+
+        form.on('submit(searchForm)', function(obj){
+            reloadTable(obj.field,1);
+            return false;
+        });
+
+        form.on('submit(addTaskForm)', function(obj){
+            var pattern = /^(http|https):\/\/mp\.weixin\.qq\.com\/s/;
+            if(!pattern.test(obj.field.url)){
+                return layer.tips_warn('请输入正确的微信链接');
+            }
+            if(isEmpty(obj.field.speed)){
+                return layer.tips_warn('请选择速度类型');
+            }
+
+            var paddingIndex = layer.load(1, {shade: [0.5,'#888'],time:10000});
+            admin.req({
+                type: 'post'
+                ,url: '/task/add?biz='+biz
+                ,data: obj.field
+                ,done:function () {
+                    $('input[name=need],input[name=url],input[name=special]').val('');
+                    $('#scoreTip').css('display','none');
+                    reloadTable('',1,false);
+                }
+                ,success:function () {
+                    layer.close(paddingIndex);
+                }
+            });
+            return false;
+        });
+
+        form.on('radio(speedRadio)', function(data){
+            var min = $(data.elem).attr('min');
+            $('input[name=need]').attr('placeholder','请输入期望阅读量,最低'+min);
+        });
+
+        setTimeout(function () {
+            $(':radio:first').siblings().click();
+        },200);
+
+        $('input[name=need],.layui-form-radio').on('input click ',function () {
+            var checkedRaido = $('input[name=speed]:checked');
+            var speed = checkedRaido.val(),newTipTxt='';
+            var price=speedPrice[speed]/10;
+            var need = parseInt($('input[name=need]').val());
+            var totalNeed = need*price>0?need*price:0;
+            $('input[name=price]').val(price.toFixed(2));
+
+            if($(this).hasClass('layui-form-radio')){
+                if(speed==39){
+                    specialTitleDom.text('曲线完成时间');
+                    newTipTxt = '单位为小时，可填写3-24';
+                }else {
+                    newTipTxt = '可填写'+checkedRaido.attr('title').match(/\d+-\d+/)[0];
+                    specialTitleDom.text('每分钟阅读数');
+                }
+                if(specialTipDom.text()!==newTipTxt){
+                    specialTipDom.text(newTipTxt);
+                    $('input[name=special]').val('');
+                }
+            }
+
+            if(totalNeed>0){
+                totalNeed = totalNeed.toFixed(2);
+                var tipText = '总需币:'+totalNeed+'币 ≈ '+(totalNeed/100).toFixed(2)+'元 (余额:'+_balance+'币)';
+
+                if(parseFloat(totalNeed)>_balance){
+                    scoreTip.css('display','block').find('span').text(tipText).next().css('display','inline-block');
+                }else {
+                    scoreTip.css('display','block').find('span').text(tipText).next().css('display','none');
+                }
+            }else{
+                scoreTip.css('display','none');
+            }
+        });
+
+        table.render({
+            elem: '#data-list'
+            , url: '/task/lists?biz='+biz
+            ,cols: [[
+                {field:'id', align:'center', width:60,title: 'ID', sort: true,unresize:true}
+                ,{field:'title',align:'center',title: '文章标题',sort: true,templet:'#titleTpl'}
+                ,{field:'speed_text', align:'center',width:80, title: '速度', sort: true,unresize:true}
+                ,{field:'score', align:'center', width:80,title: '单价(币)',sort: true,unresize:true}
+                ,{field:'init_read', align:'center', width:90, title: '初始阅读',sort: true}
+                ,{field:'need',align:'center', width:90, title: '所需阅读', sort: true}
+                ,{field:'read_num', align:'center',width:80, title: '已完成', sort: true}
+                ,{field:'createtime', align:'center',width:105, title: '提交时间', sort: true,templet:'#createtimeTpl',unresize:true}
+                ,{field:'status_text', align:'center',width:70, title: '状态', sort: true,unresize:true}
+                ,{width:130,align:'center',title:'操作', toolbar: '#table-operate-bar',fixed:'right'}
+            ]]
+            ,page: true
+            ,limit:20
+            ,text:{none:'没有相关任务'}
+        });
+
+        table.on('tool(data-list)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                var extra = '<div class="detail-extra"><p>提交时间：'+data.createtime.substr(2)+'</p></div>',specialTxt='';
+                if(data.speed=='39'){
+                    specialTxt='<p class="color-notice">曲线完成时间：'+data.special+'小时</p>'
+                }else {
+                    specialTxt='<p class="color-notice">每分钟阅读：'+data.special+'个</p>'
+                }
+
+                var content='<div class="detail-item">' +
+                        '<div class="detail-item-left">' +
+                        '<p>ID：'+data.id+'</p>' +
+                        '<p class="color-notice">所需阅读：'+data.need+'</p>' +
+                        '<p>单价：'+data.score+'币</p>' +
+                        '<p>速度：'+data.speed_text+'</p>' +
+                        '</div>' +
+                        '<div class="detail-item-right">' +
+                        '<p">初始阅读：<b>'+data.init_read+'</b></p>' +
+                        '<p class="color-notice">已完成：<b>'+data.read_num+'</b></p>' +
+                        '<p class="color-notice">状态：'+data.status_text+'</p>' +
+                        specialTxt+
+                        '</div></div>' + extra;
+
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim',
+                    title: data.title,
+                    shadeClose:true,
+                    content: content
+                });
+            } else if(obj.event === 'delete'){
+                layer.confirm('<p class="color-notice">删除该任务？</p>'+data.title, {title:null},function(index){
+                    admin.req({
+                        type: 'post'
+                        ,url: '/task/delete'
+                        ,data: {id:data.id,biz:biz}
+                        ,done:function () {
+                            reloadTable('',1,false);
+                        }
+                    });
+                    layer.close(index);
+                });
+            }else if(obj.event === 'cancel'){
+                layer.confirm('<p class="color-notice">取消该任务？</p>'+data.title, {title:null},function(index){
+                    admin.req({
+                        type: 'post'
+                        ,url: '/task/cancel'
+                        ,data: {id:data.id,biz:biz}
+                        ,done:function () {
+                            reloadTable('',1,false);
+                        }
+                    });
+                    layer.close(index);
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    var _balance='0.00';
+    var _uid='3481417';
+    var _username='lianzi520';
+
+    if(self !== top){
+        var $=parent.layui.$;
+        $('._info_unlogin').addClass('layui-hide');
+        $('._info_logined').removeClass('layui-hide');
+        $('._info_username').text(_username);
+        $('._info_uid').text(_uid);
+        $('._info_balance').text(_balance+'币');
+    }
+</script></body>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="微信阅读推广,微信粉丝,公众号加粉,公众号互粉,微信点赞,微信真人活粉,微信公众号纸巾机加粉,微信公众号wifi吸粉,微信吸粉,文章阅读,微信线下粉">
+    <meta name="description" content="微信阅读推广,微信粉丝,公众号加粉,公众号互粉,微信点赞,微信真人活粉,微信公众号纸巾机加粉,微信公众号wifi吸粉,微信吸粉,文章阅读,微信线下粉">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="__CSS__/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/admin.css" media="all">
+
+    <title>互粉之家登陆 - 互粉之家</title>
+    <link rel="stylesheet" href="__CSS__/login.css" media="all">
+    <style>
+        .layui-tab-title li{width: 39.5%}
+        .layui-tab-brief>.layui-tab-title .layui-this {
+            color: #1E9FFF;
+        }
+        .layui-tab-brief>.layui-tab-title .layui-this:after {
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid #429eff;
+        }
+        .layui-tab-title li {
+            width: 33%;
+            padding: 0;
+        }
+        .layui-tab-title li {width: 50%!important;}        #wxQrcode{margin: auto;padding: 10px;width: 200px;height: 200px;background: white;border-radius: 15px;}
+        #wxQrcodeMask{color: white;font-size: 18px;font-weight: bold;position: absolute;z-index: 1000;height: 200px;width: 200px;background-color: rgba(100,100,100,0.9);}
+        #reloadWxLoginQrCode{color: #1E9FFF;cursor: pointer}
+        .layadmin-user-login-other{padding-top: 0}
+    </style>
+    <script>if(self !== top){parent.document.location.href=document.location.href;}</script>
+    <style>
+        .color-tip{color: #FFB800}
+        .color-notice{color: #FF5722}
+        .color-show{color: #01AAED}
+        .text-center{text-align: center;}
+
+        @media only screen and (max-width: 500px) {
+            .layui-form-label {
+                padding: 9px 0;
+                width: 70px;
+            }
+            .layui-input-block {
+                margin-left: 85px;
+            }
+        }
+        .layui-input-block>input{min-width: 150px;}
+
+        .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover {background-color: #1E9FFF !important;color: #fff;}
+
+        .layui-btn {background-color:#1E9FFF}
+        .layui-btn-primary {border: 1px solid #C9C9C9;background-color: #fff;color: #555;}
+        .layui-btn-danger {background-color: #FF5722;}
+        .layui-btn-warm {background-color: #FFB800;}
+        .layui-btn-disabled, .layui-btn-disabled:active, .layui-btn-disabled:hover {
+            background-color: #FBFBFB;
+        }
+
+        .layui-btn.disabled,.layui-btn:disabled{
+            border: 1px solid #e6e6e6!important;
+            background-color: #FBFBFB!important;
+            color: #C9C9C9!important;
+            cursor: not-allowed!important;
+            opacity: 1!important;
+        }
+
+        .layui-nav-tree .layui-nav-bar {background-color:#1E9FFF !important;}
+        .layui-laypage .layui-laypage-curr .layui-laypage-em {background-color: #1E9FFF;}
+        .layui-form-radio>i:hover, .layui-form-radioed>i {color: #1E9FFF;}
+        .layui-form-select dl dd.layui-this {background-color: #1E9FFF;color: #fff;}
+
+    </style>
+</head>
+
+<body>
+
+<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login">
+    <div class="layadmin-user-login-main">
+        <div class="layadmin-user-login-box layadmin-user-login-header" style="padding-top: 10px;">
+            <h2 style="margin-bottom: 10px;">欢迎登陆互粉之家</h2>
+            <p>我们致力于给您提供更便捷有效的粉丝服务</p>
+        </div>
+
+        <div class="layadmin-user-login-box layadmin-user-login-body layui-form" style="padding-top: 5px;">
+            <div class="layui-tab layui-tab-brief" lay-filter="login-method">
+                <ul class="layui-tab-title" style="-webkit-user-select:none;user-select:none;">
+                    <li class="layui-this">密码登陆</li>
+                    <li>短信登陆</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <div class="layui-form-item">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+                            <input type="text" name="username" id="LAY-user-login-username" placeholder="请输入用户名或手机号" class="layui-input">
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                            <input type="password" name="password" id="LAY-user-login-password" placeholder="密码" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-tab-item">
+                        <div class="layui-form-item">
+                            <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-username"></label>
+                            <input type="text" name="mobile" id="LAY-user-login-mobile" placeholder="手机号" class="layui-input">
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-row">
+                                <div class="layui-col-xs7">
+                                    <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                                    <input type="text" name="sms-captcha" id="LAY-user-login-vercode" placeholder="验证码" class="layui-input" maxlength="6">
+                                </div>
+                                <div class="layui-col-xs5">
+                                    <div style="margin-left: 10px;">
+                                        <button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="LAY-user-login-getsmscode" style="padding:unset">获取验证码</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-tab-item" style="text-align: center">
+                        <p style="font-size: 18px;padding-bottom: 5px">请用微信扫码登陆</p>
+                        <div id="wxQrcode"></div>                        </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" id="loginBtn">登录</button>
+            </div>
+            <div class="layui-trans layui-form-item layadmin-user-login-other">
+                <a href="/user/register" class="layadmin-user-jump-change" style="color: #1E9FFF">没有账号？立即注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-trans layadmin-user-login-footer">
+    <p>© 2018 互粉之家,备案号:<a href="http://beian.miit.gov.cn" target="_blank">京ICP备17063261号</a></p>
+</div>
+
+
+<script src="__JS__/layui.js"></script>
+
+
+
+</body>
